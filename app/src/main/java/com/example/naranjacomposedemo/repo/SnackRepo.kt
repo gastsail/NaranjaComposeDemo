@@ -18,8 +18,6 @@ enum class CollectionType { Normal, Highlight }
  * A fake repo
  */
 object SnackRepo {
-    fun getSnacks(): List<SnackCollection> = snackCollections
-    fun getSnack(snackId: Long) = snacks.find { it.id == snackId }!!
     fun getInspiredByCart() = inspiredByCart
     fun getCart() = cart
 }
@@ -35,38 +33,9 @@ private val tastyTreats = SnackCollection(
     snacks = snacks.subList(0, 13)
 )
 
-private val popular = SnackCollection(
-    id = 2L,
-    name = "Popular on Jetsnack",
-    snacks = snacks.subList(14, 19)
-)
-
-private val wfhFavs = tastyTreats.copy(
-    id = 3L,
-    name = "WFH favourites"
-)
-
-private val newlyAdded = popular.copy(
-    id = 4L,
-    name = "Newly Added"
-)
-
-private val exclusive = tastyTreats.copy(
-    id = 5L,
-    name = "Only on Jetsnack"
-)
-
 private val inspiredByCart = tastyTreats.copy(
     id = 7L,
     name = "Inspired by your cart"
-)
-
-private val snackCollections = listOf(
-    tastyTreats,
-    popular,
-    wfhFavs,
-    newlyAdded,
-    exclusive
 )
 
 private val cart = listOf(

@@ -55,7 +55,7 @@ import com.example.naranjacomposedemo.utils.formatPrice
 import com.google.accompanist.insets.statusBarsHeight
 
 @Composable
-fun Cart(
+fun CartScreen(
     onSnackClick: (Long) -> Unit,
     modifier: Modifier = Modifier,
     viewModel: CartViewModel = viewModel(factory = CartViewModel.provideFactory())
