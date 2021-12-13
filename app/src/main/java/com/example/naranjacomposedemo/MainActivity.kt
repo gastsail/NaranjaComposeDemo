@@ -8,6 +8,7 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.naranjacomposedemo.ui.cart.Cart
 import com.example.naranjacomposedemo.ui.theme.JetsnackTheme
 
 class MainActivity : ComponentActivity() {
@@ -15,24 +16,18 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             JetsnackTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(color = MaterialTheme.colors.background) {
-                    Greeting("Android")
-                }
+                Cart(onSnackClick = {
+                    // Navigate to snack details
+                })
             }
         }
     }
-}
-
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
 }
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     JetsnackTheme {
-        Greeting("Android")
+        Cart(onSnackClick = {})
     }
 }

@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
@@ -132,6 +133,17 @@ private fun CartContent(
                     .wrapContentHeight()
             )
         }
+
+        items(orderLines) { orderLine ->
+            CartItem(
+                orderLine = orderLine,
+                removeSnack = removeSnack,
+                increaseItemCount = increaseItemCount,
+                decreaseItemCount = decreaseItemCount,
+                onSnackClick = onSnackClick
+            )
+        }
+
         item {
             SummaryItem(
                 subtotal = orderLines.map { it.snack.price * it.count }.sum(),
